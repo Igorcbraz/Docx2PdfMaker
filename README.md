@@ -40,4 +40,4 @@
 
 </details>
 
-Check the [demo folder](https://github.com/Igorcbraz/Docx2PdfMaker/tree/main/examples) for examples.
+Check the [demo folder](https://github.com/Igorcbraz/Docx2PdfMaker/tree/main/example) for examples.
