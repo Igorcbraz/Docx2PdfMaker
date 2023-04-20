@@ -1,6 +1,6 @@
 {
   "name": "docx2pdfmaker",
-  "version": "1.0.1",
+  "version": "0.0.2",
   "description": "NPM Package to convert .Docx file into Pdfmaker libary format",
   "main": "index.js",
   "scripts": {
