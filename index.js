@@ -41,10 +41,6 @@ async function ConvertToPdf (data, type, options) {
     })
 
   const dd = {
-    info: {
-      title: 'DocumentoTeste.pdf',
-      author: '(WebGR) empresa'
-    },
     pageMargins: [10, 25, 10, 60],
     content: convertedContent
   }
