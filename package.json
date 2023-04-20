@@ -1,0 +1,50 @@
+{
+  "name": "docx2pdfmaker",
+  "version": "1.0.0",
+  "description": "NPM Package to convert .Docx file into Pdfmaker libary format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igorcbraz/Docx2PdfMaker.git"
+  },
+  "keywords": [
+    "docx",
+    "doc",
+    "docx2pdf",
+    "docx2pdfmaker",
+    "office",
+    "word",
+    "generate",
+    "generator",
+    "creator",
+    "create",
+    "template",
+    "docxtemplater",
+    "microsoft office",
+    "microsoft word",
+    "microsoft",
+    "office word",
+    "office microsoft",
+    "office microsoft word",
+    "office microsoft word docx",
+    "pdf",
+    "pdfmaker",
+    "pdfmake",
+    "pdfmakejs",
+    "pdfmake.js"
+  ],
+  "author": "Igorcbraz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Igorcbraz/Docx2PdfMaker/issues"
+  },
+  "homepage": "https://github.com/Igorcbraz/Docx2PdfMaker#readme",
+  "dependencies": {
+    "html-to-pdfmake": "^2.4.18",
+    "jsdom": "^21.1.1",
+    "mammoth": "^1.5.1"
+  }
+}
