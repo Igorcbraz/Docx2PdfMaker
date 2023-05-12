@@ -5,7 +5,7 @@ const { window } = new JSDOM('')
 const mammoth = require('mammoth')
 const htmlToPdfmake = require('html-to-pdfmake')
 
-async function ConvertToPdf (data, type, options) {
+async function ConvertToPdf (data, type, options, tableLayout) {
   let input = {}
 
   if (type === 'path') {
@@ -29,10 +29,12 @@ async function ConvertToPdf (data, type, options) {
   const convertedContent = htmlToPdfmake(html, { window })
     .map(item => {
       if (item.nodeName === 'TABLE') {
+        const { formatTable, formatWidth } = makeRowHaveTheSameNumberOfColumns(item.table.body)
         return {
           ...item,
           table: {
-            body: makeRowHaveTheSameNumberOfColumns(item.table.body)
+            widths: formatWidth,
+            body: formatTable
           }
         }
       }
@@ -41,7 +43,6 @@ async function ConvertToPdf (data, type, options) {
     })
 
   const dd = {
-    pageMargins: [10, 25, 10, 60],
     content: convertedContent
   }
 
@@ -50,7 +51,7 @@ async function ConvertToPdf (data, type, options) {
 
 // function to make all rows have the same number of columns
 function makeRowHaveTheSameNumberOfColumns (table) {
-  const formatTable = table.map(row => {
+  const formatTable = table.map((row, index) => {
     // make all rows have the same number of columns
     const numberOfColumns = Math.max(...table.map(row => row.length))
     while (row.length < numberOfColumns) {
@@ -76,7 +77,13 @@ function makeRowHaveTheSameNumberOfColumns (table) {
     })
   })
 
-  return formatTable
+  const formatWidth = []
+  const numberOfColumns = Math.max(...formatTable.map(row => row.length))
+  for (let i = 0; i < numberOfColumns; i++) {
+    formatWidth.push('*')
+  }
+
+  return { formatTable, formatWidth }
 }
 
 module.exports = { ConvertToPdf }
